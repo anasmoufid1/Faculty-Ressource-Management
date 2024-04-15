@@ -10,6 +10,10 @@ public class Fournisseur {
     private Long id;
 
     private String companyName;
+    private boolean estListeNoire;
+    private String adresse;
+    private String gerantName;
+    private String siteInternet;
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -37,5 +41,37 @@ public class Fournisseur {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isEstListeNoire() {
+        return estListeNoire;
+    }
+
+    public void setEstListeNoire(boolean estListeNoire) {
+        this.estListeNoire = estListeNoire;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getGerantName() {
+        return gerantName;
+    }
+
+    public void setGerantName(String gerantName) {
+        this.gerantName = gerantName;
+    }
+
+    public String getSiteInternet() {
+        return siteInternet;
+    }
+
+    public void setSiteInternet(String siteInternet) {
+        this.siteInternet = siteInternet;
     }
 }

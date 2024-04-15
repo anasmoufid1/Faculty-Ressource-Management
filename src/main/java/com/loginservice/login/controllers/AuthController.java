@@ -29,6 +29,9 @@ public class AuthController {
     @Autowired
     private TechnicienService technicienService;
 
+    @Autowired
+    private ChefDepartementService chefDepartementService;
+
     @GetMapping("login")
     public String loginForm(){
         return "Auth/login";
@@ -83,6 +86,20 @@ public class AuthController {
                         if (personne != null) {
                             session.setAttribute("personne",personne);
                             session.setAttribute("responsable",responsable);
+                            return "Responsable/home";
+                        }
+                        return "redirect:/login?success=false";
+                    }
+                }
+                case "CHEFDEPARTEMENT"->{
+                    Enseignant enseignant=enseignantService.getEnseignantByUser(user);
+                    ChefDepartement chefDepartement=chefDepartementService.getchefDepartementByEnseignant(enseignant);
+                    if (chefDepartement != null) {
+                        Personne personne = chefDepartement.getEnseignant().getPersonne();
+                        if (personne != null) {
+                            session.setAttribute("personne",personne);
+                            session.setAttribute("chefdepartement",chefDepartement);
+                            session.setAttribute("enseignant",chefDepartement.getEnseignant());
                             return "Responsable/home";
                         }
                         return "redirect:/login?success=false";

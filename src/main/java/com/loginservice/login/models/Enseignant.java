@@ -15,7 +15,7 @@ public class Enseignant {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "dep_id")
     private Departement Dep;
 

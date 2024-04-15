@@ -14,6 +14,15 @@ public class Personne {
     public String Prenom;
     public String Nom;
     public String Email;
+    public String Adresse;
+
+    public String getAdresse() {
+        return Adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        Adresse = adresse;
+    }
 
     public Long getId() {
         return id;

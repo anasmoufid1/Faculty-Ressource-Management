@@ -13,9 +13,6 @@ public class EnseignantService{
     @Autowired
     private EnseignantRepository enseignantRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     public Enseignant getEnseignantByUser(User user) {
         return enseignantRepository.findByUser(user);
     }
