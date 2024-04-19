@@ -7,6 +7,8 @@ import com.loginservice.login.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EnseignantService{
 
@@ -15,5 +17,11 @@ public class EnseignantService{
 
     public Enseignant getEnseignantByUser(User user) {
         return enseignantRepository.findByUser(user);
+    }
+
+
+    public List<Enseignant> getEnseignantByDepartementIdS(Long departementId)
+    {
+        return enseignantRepository.getEnseignantByDepartementId(departementId);
     }
 }

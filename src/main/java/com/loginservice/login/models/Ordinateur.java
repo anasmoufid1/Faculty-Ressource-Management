@@ -3,7 +3,7 @@ package com.loginservice.login.models;
 import jakarta.persistence.*;
 
 @Entity
-public class Ordinateur {
+public class Ordinateur{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,6 +12,18 @@ public class Ordinateur {
     private String DisqueDure;
     private String Ecran;
     private String ram;
+
+    @OneToOne
+    @JoinColumn(name = "ressource_id")
+    private Ressource ressource;
+
+    public Ressource getRessource() {
+        return ressource;
+    }
+
+    public void setRessource(Ressource ressource) {
+        this.ressource = ressource;
+    }
 
     public Long getId() {
         return id;

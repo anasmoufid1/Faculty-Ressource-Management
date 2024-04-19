@@ -100,7 +100,7 @@ public class AuthController {
                             session.setAttribute("personne",personne);
                             session.setAttribute("chefdepartement",chefDepartement);
                             session.setAttribute("enseignant",chefDepartement.getEnseignant());
-                            return "Responsable/home";
+                            return "redirect:/EnseignantPerDepartement";
                         }
                         return "redirect:/login?success=false";
                     }

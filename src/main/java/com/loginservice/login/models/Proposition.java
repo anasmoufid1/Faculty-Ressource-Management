@@ -2,7 +2,9 @@ package com.loginservice.login.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Proposition {
@@ -10,17 +12,27 @@ public class Proposition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Date DateLivraison;
+    private LocalDate DateLivraison;
     private int dureeGarantille;
-    private String Marque;
     private double prix;
     @ManyToOne
     @JoinColumn(name = "Appel_offreID")
     private AppelOffre appelOffre;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "FournisseurID")
     private Fournisseur fournisseur;
+
+    @OneToMany(mappedBy = "proposition", cascade = CascadeType.ALL)
+    private List<PrixBesoinProposition> prixDesBesoins;
+
+    public List<PrixBesoinProposition> getPrixDesBesoins() {
+        return prixDesBesoins;
+    }
+
+    public void setPrixDesBesoins(List<PrixBesoinProposition> prixDesBesoins) {
+        this.prixDesBesoins = prixDesBesoins;
+    }
 
     public Long getId() {
         return id;
@@ -30,11 +42,12 @@ public class Proposition {
         this.id = id;
     }
 
-    public Date getDateLivraison() {
+
+    public LocalDate getDateLivraison() {
         return DateLivraison;
     }
 
-    public void setDateLivraison(Date dateLivraison) {
+    public void setDateLivraison(LocalDate dateLivraison) {
         DateLivraison = dateLivraison;
     }
 
@@ -44,14 +57,6 @@ public class Proposition {
 
     public void setDureeGarantille(int dureeGarantille) {
         this.dureeGarantille = dureeGarantille;
-    }
-
-    public String getMarque() {
-        return Marque;
-    }
-
-    public void setMarque(String marque) {
-        Marque = marque;
     }
 
     public double getPrix() {

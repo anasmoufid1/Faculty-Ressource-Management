@@ -1,9 +1,6 @@
 package com.loginservice.login.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Ressource {
@@ -14,6 +11,38 @@ public class Ressource {
     private String marque;
     private String numInventaire;
     private double prix;
+
+    private String type;
+
+    @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    private Ordinateur ordinateur;
+
+    @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
+    private Imprimante imprimante;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Ordinateur getOrdinateur() {
+        return ordinateur;
+    }
+
+    public void setOrdinateur(Ordinateur ordinateur) {
+        this.ordinateur = ordinateur;
+    }
+
+    public Imprimante getImprimante() {
+        return imprimante;
+    }
+
+    public void setImprimante(Imprimante imprimante) {
+        this.imprimante = imprimante;
+    }
 
     public Long getId() {
         return id;

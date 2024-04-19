@@ -3,6 +3,7 @@ package com.loginservice.login.models;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class AppelOffre {
@@ -18,9 +19,19 @@ public class AppelOffre {
     @JoinColumn(name = "responsable_id")
     private Responsable responsable;
 
-    @OneToOne
-    @JoinColumn(name = "besoin_id")
-    private Besoin besoin;
+
+    @OneToMany(mappedBy = "appelOffre", cascade = CascadeType.ALL)
+    private List<Besoin> besoins;
+
+
+
+    public List<Besoin> getBesoins() {
+        return besoins;
+    }
+
+    public void setBesoins(List<Besoin> besoins) {
+        this.besoins = besoins;
+    }
 
     public Long getId() {
         return id;
@@ -54,11 +65,5 @@ public class AppelOffre {
         this.responsable = responsable;
     }
 
-    public Besoin getBesoin() {
-        return besoin;
-    }
 
-    public void setBesoin(Besoin besoin) {
-        this.besoin = besoin;
-    }
 }
