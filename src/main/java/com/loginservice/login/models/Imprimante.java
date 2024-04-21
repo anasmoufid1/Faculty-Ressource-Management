@@ -12,9 +12,21 @@ public class Imprimante{
     private String resolution;
     private String vitesseImpression;
 
+
+
     @OneToOne
     @JoinColumn(name = "ressource_id")
     private Ressource ressource;
+
+
+    public Imprimante(String resolution, String vitesseImpression, Ressource ressource) {
+        this.resolution = resolution;
+        this.vitesseImpression = vitesseImpression;
+        this.ressource = ressource;
+    }
+
+    public Imprimante() {
+    }
 
     public Ressource getRessource() {
         return ressource;

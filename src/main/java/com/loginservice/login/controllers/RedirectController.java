@@ -13,4 +13,7 @@ public class RedirectController {
     return "login";
 }
 
+@GetMapping("/Profile")
+public String redirectProfile(){return "ChefDep/Profile/home";}
+
 }

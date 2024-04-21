@@ -28,6 +28,15 @@ public class Besoin {
     @JoinColumn(name = "Collect_id")
     private CollecteBesoin collecteBesoin;
 
+    public Besoin(Enseignant enseignant, Ressource ressource, CollecteBesoin collecteBesoin) {
+        this.enseignant = enseignant;
+        this.ressource = ressource;
+        this.collecteBesoin = collecteBesoin;
+    }
+
+    public Besoin() {
+    }
+
     public CollecteBesoin getCollecteBesoin() {
         return collecteBesoin;
     }

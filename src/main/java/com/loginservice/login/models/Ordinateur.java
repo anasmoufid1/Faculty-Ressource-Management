@@ -17,6 +17,17 @@ public class Ordinateur{
     @JoinColumn(name = "ressource_id")
     private Ressource ressource;
 
+    public Ordinateur(String cpu, String disqueDure, String ecran, String ram, Ressource ressource) {
+        Cpu = cpu;
+        DisqueDure = disqueDure;
+        Ecran = ecran;
+        this.ram = ram;
+        this.ressource = ressource;
+    }
+
+    public Ordinateur() {
+    }
+
     public Ressource getRessource() {
         return ressource;
     }

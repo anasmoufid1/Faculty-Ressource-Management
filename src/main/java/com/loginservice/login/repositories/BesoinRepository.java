@@ -11,4 +11,6 @@ import java.util.List;
 public interface BesoinRepository extends JpaRepository<Besoin,Long> {
     @Query("SELECT b FROM Besoin b WHERE b.collecteBesoin.id IN (SELECT cb.id FROM CollecteBesoin cb WHERE cb.chefDep.id = :chefDepId)")
     List<Besoin> findBesoinByChefDepId(Long chefDepId);
+
+
 }

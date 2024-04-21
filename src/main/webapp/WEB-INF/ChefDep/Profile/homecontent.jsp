@@ -1,24 +1,16 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.loginservice.login.models.Enseignant" %>
-
 <%@ page import="com.loginservice.login.models.Personne" %>
 <%@ page import="com.loginservice.login.models.ChefDepartement" %>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
     session = request.getSession();
-    String role1=(String)session.getAttribute("role");
-    Personne prs1 = (Personne)session.getAttribute("personne");
-
-    String nommm1 = prs1.getNom();;
-    String prenommm1= prs1.getPrenom();
-
+    String role1 = (String) session.getAttribute("role");
+    Personne prs1 = (Personne) session.getAttribute("personne");
+    String nommm1 = prs1.getNom();
+    String prenommm1 = prs1.getPrenom();
     ChefDepartement chef = (ChefDepartement) session.getAttribute("chefdepartement");
-    String departement = chef.getDepartement().getNom();
-
-
-
+    String departement = chef.getEnseignant().getDep().getNom();
 %>
 <style>
     body {
@@ -65,32 +57,27 @@
         cursor: pointer;
         border: solid 1px #BA68C8
     }
-
 </style>
 <div class="main">
-
     <nav class="navbar navbar-expand px-3 border-bottom">
         <button class="btn" id="sidebar-toggle" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
     <main class="content px-3 py-2">
-
         <!-- Table Element -->
         <div class="card border-0">
-            <div class="card-header">
-
-            </div>
-
+            <div class="card-header"></div>
             <div class="card-body">
                 <div class="container rounded bg-white mt-5 mb-5">
-                    <div class="row justify-content-center"><!-- Ajoutez la classe justify-content-center pour centrer horizontalement -->
+                    <div class="row justify-content-center">
+                        <!-- Ajoutez la classe justify-content-center pour centrer horizontalement -->
                         <div class="col-md-3 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                                 <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                                <span class="font-weight-bold"><%= prs1.getNom()%><<%= prs1.getPrenom()%>/span>
-                                <span class="text-black-50"><%= prs1.getEmail()%></span>
-                                <span> </span>
+                                <span class="font-weight-bold"><%= prs1.getNom() %> <%= prs1.getPrenom() %></span>
+                                <span class="text-black-50"><%= prs1.getEmail() %></span>
+                                <span></span>
                             </div>
                         </div>
                         <div class="col-md-5 border-right">
@@ -99,23 +86,32 @@
                                     <h4 class="text-right">Profile Settings</h4>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="<%= prs1.getNom()%>>"></div>
-                                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="<%= prs1.getPrenom()%>" placeholder="surname"></div>
+                                    <div class="col-md-6">
+                                        <label class="labels">Name</label>
+                                        <input type="text" class="form-control" placeholder="first name" value="<%= prs1.getNom() %>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="labels">Surname</label>
+                                        <input type="text" class="form-control" value="<%= prs1.getPrenom() %>" placeholder="surname">
+                                    </div>
                                 </div>
                                 <div class="row mt-3">
-                                    <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" placeholder="enter address line 2" value="<%= prs1.getAdresse()%>"></div>
-                                    <div class="col-md-12"><label class="labels">Email </label><input type="text" class="form-control" placeholder="enter email id" value="<%= prs1.getEmail()%>"></div>
+                                    <div class="col-md-12">
+                                        <label class="labels">Address</label>
+                                        <input type="text" class="form-control" placeholder="enter address line 2" value="<%= prs1.getAdresse() %>">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label class="labels">Email </label>
+                                        <input type="text" class="form-control" placeholder="enter email id" value="<%= prs1.getEmail() %>">
+                                    </div>
                                 </div>
-
-                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">OK</button></div>
+                                <div class="mt-5 text-center">
+                                    <button class="btn btn-primary profile-button" type="button">OK</button>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
-
             </div>
         </div>
     </main>

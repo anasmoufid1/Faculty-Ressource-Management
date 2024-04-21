@@ -30,7 +30,7 @@
                             <tbody>
 
                             <%
-                                List<Besoin> besoinlist = (List<com.loginservice.login.models.Besoin>) request.getAttribute("besoinlist");
+                                List<Besoin> besoinlist = (List<Besoin>) request.getAttribute("besoinlist");
                                 for (com.loginservice.login.models.Besoin besoin : besoinlist) {
                             %>
                             <tr>

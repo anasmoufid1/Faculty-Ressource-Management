@@ -1,5 +1,6 @@
 package com.loginservice.login.services;
 
+import com.loginservice.login.models.Besoin;
 import com.loginservice.login.models.CollecteBesoin;
 import com.loginservice.login.repositories.BesoinRepository;
 import com.loginservice.login.repositories.CollecteBesoinRepository;
@@ -19,5 +20,5 @@ public class CollecteBesoinService {
         return collecteBesoinRepository.save(c);
     }
 
-
+    public CollecteBesoin getBesoinById(Long Id){ return collecteBesoinRepository.findBesoinById(Id);}
 }

@@ -20,6 +20,16 @@ public class Ressource {
     @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
     private Imprimante imprimante;
 
+    public Ressource(String marque, String numInventaire, double prix, String type) {
+        this.marque = marque;
+        this.numInventaire = numInventaire;
+        this.prix = prix;
+        this.type = type;
+    }
+
+    public Ressource() {
+    }
+
     public String getType() {
         return type;
     }

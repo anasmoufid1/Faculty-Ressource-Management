@@ -1,5 +1,6 @@
 package com.loginservice.login.repositories;
 
+import com.loginservice.login.models.CollecteBesoin;
 import com.loginservice.login.models.Enseignant;
 import com.loginservice.login.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,5 +15,8 @@ public interface EnseignantRepository extends JpaRepository<Enseignant,Long> {
     Enseignant findByUser(User user);
     @Query("SELECT E FROM Enseignant E WHERE E.Dep.id = :departementId")
     List<Enseignant> getEnseignantByDepartementId(@Param("departementId") Long departementId);
+
+    @Query("SELECT c FROM CollecteBesoin c WHERE c.chefDep.id IN (SELECT cd.id FROM ChefDepartement cd WHERE cd.enseignant.id IN (SELECT e.id FROM Enseignant e WHERE e.Dep.id = :depId))")
+    List<CollecteBesoin> getCollectBesoinByDepartementId(Long depId);
 
 }

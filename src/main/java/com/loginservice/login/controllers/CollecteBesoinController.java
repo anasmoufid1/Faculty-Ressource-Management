@@ -1,14 +1,15 @@
 package com.loginservice.login.controllers;
 
-import com.loginservice.login.models.Besoin;
-import com.loginservice.login.models.ChefDepartement;
-import com.loginservice.login.models.CollecteBesoin;
+import com.loginservice.login.models.*;
+import com.loginservice.login.services.BesoinService;
 import com.loginservice.login.services.CollecteBesoinService;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
 import java.util.List;
@@ -21,10 +22,10 @@ public class CollecteBesoinController {
     private CollecteBesoinService collecteBesoinService;
 
     @Autowired
-    private com.loginservice.login.services.BesoinService besoin;
+    private BesoinService besoinService;
 
     @GetMapping("/Collecte_Besoin")
-    public String insertBesoin(CollecteBesoin c, HttpSession session) {
+    public String insertDemandeBesoin(CollecteBesoin c, HttpSession session) {
 
         Date now = new Date();
 
@@ -59,11 +60,14 @@ public class CollecteBesoinController {
     {
         ChefDepartement chefDepp = (ChefDepartement) session.getAttribute("chefdepartement");
         Long chefDepId = chefDepp.getId();
-        List<Besoin> besoinList =  besoin.getAllBesoin(chefDepId);
+        List<Besoin> besoinList =  besoinService.getAllBesoin(chefDepId);
 
         model.addAttribute("besoinlist" , besoinList);
         return "ChefDep/listeBesoin/home";
     }
+
+
+
 
 
 }
