@@ -4,6 +4,7 @@ import com.loginservice.login.models.AppelOffre;
 import com.loginservice.login.models.Fournisseur;
 import com.loginservice.login.models.Proposition;
 import com.loginservice.login.repositories.AppelsOffreRepository;
+import com.loginservice.login.repositories.FournisseurRepository;
 import com.loginservice.login.services.AppelsOffreService;
 import com.loginservice.login.services.PrixBesoinPropositionService;
 import com.loginservice.login.services.PropositionService;
@@ -27,6 +28,9 @@ public class AppelOffreController {
     private AppelsOffreService appelsOffreService;
 
     @Autowired
+    private FournisseurRepository fournisseurRepository;
+
+    @Autowired
     private PropositionService propositionService;
 
     @Autowired
@@ -48,6 +52,10 @@ public class AppelOffreController {
                                                          @RequestParam("dateLivraison") LocalDate datelivraison,
                                                          @RequestParam("dureeGarantie") int dureeGarantie,
                                                          @RequestParam("fournisseur") Long fournisseur){
+        Fournisseur fournisseur1 = fournisseurRepository.getById(fournisseur);
+        if(fournisseur1.isEstListeNoire()){
+            return "redirect:fournisseur";
+        }
         List<Double> prixBesoins = new ArrayList<>();
         // Parcourir les données du formulaire
         for (Map.Entry<String, String> entry : formData.entrySet()) {
@@ -76,7 +84,9 @@ public class AppelOffreController {
                 }
             }
         }
-        Proposition proposition=propositionService.enregistrerProposition(fournisseur,id,dureeGarantie,datelivraison,totalPrice);
+
+        Date date = new Date();
+        Proposition proposition=propositionService.enregistrerProposition(fournisseur,id,dureeGarantie,datelivraison,totalPrice,2);
         Long propostioni = proposition.getId();
         for (int i = 0; i < idBesoins.size(); i++) {
             Long ic= Long.valueOf(idBesoins.get(i));

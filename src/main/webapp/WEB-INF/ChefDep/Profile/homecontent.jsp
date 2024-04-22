@@ -15,7 +15,7 @@
     String prenommm1= prs1.getPrenom();
 
     ChefDepartement chef = (ChefDepartement) session.getAttribute("chefdepartement");
-    String departement = chef.getDepartement().getNom();
+    String departement = chef.getEnseignant().getDep().getNom();
 
 
 
@@ -114,9 +114,7 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-            </div>
         </div>
     </main>
     <a href="#" class="theme-toggle">

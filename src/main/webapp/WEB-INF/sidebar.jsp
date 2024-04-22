@@ -60,7 +60,7 @@
                         </a>
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Paramétres du profile</a>
+                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
 
                         </ul>
@@ -87,7 +87,7 @@
                                 <a href="appelsoffre" class="sidebar-link">Consulter</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Vos Soumissions</a>
+                                <a href="soumissions" class="sidebar-link">Vos Soumissions</a>
                             </li>
                         </ul>
                     </li>
@@ -98,7 +98,7 @@
                         </a>
                         <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Paramétres du profile</a>
+                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
 
                         </ul>
@@ -109,6 +109,19 @@
                     <%}else if (role.equals("ENSEIGNANT")){%>
                     <!-- ---------------------- ENSEIGNANT  --------------------------  -->
 
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
+                           aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
+                            Profile
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
 
 
 
@@ -116,6 +129,19 @@
                     <!-- ---------------------- TECHNICIEN  --------------------------  -->
 
 
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
+                           aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
+                            Profile
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
+                            </li>
+
+                        </ul>
+
+                    </li>
 
                     <%}else if (role.equals("CHEFDEPARTEMENT")){%>
                     <!-- ---------------------- CHEF DEPARTEMENT  --------------------------  -->

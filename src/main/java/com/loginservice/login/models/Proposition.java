@@ -15,16 +15,27 @@ public class Proposition {
     private LocalDate DateLivraison;
     private int dureeGarantille;
     private double prix;
+    private LocalDate faiteLe;
+    private int status; //0 refusé 1 accepter 2 en cours
     @ManyToOne
     @JoinColumn(name = "Appel_offreID")
     private AppelOffre appelOffre;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "FournisseurID")
     private Fournisseur fournisseur;
 
-    @OneToMany(mappedBy = "proposition", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "proposition", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<PrixBesoinProposition> prixDesBesoins;
+
+
+    public LocalDate getFaiteLe() {
+        return faiteLe;
+    }
+
+    public void setFaiteLe(LocalDate faiteLe) {
+        this.faiteLe = faiteLe;
+    }
 
     public List<PrixBesoinProposition> getPrixDesBesoins() {
         return prixDesBesoins;
@@ -42,6 +53,13 @@ public class Proposition {
         this.id = id;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public LocalDate getDateLivraison() {
         return DateLivraison;

@@ -43,6 +43,7 @@ public class AuthController {
                         @RequestParam(required = false, defaultValue = "false") boolean rememberMe,
                         HttpSession session) {
         User user = userService.getUserByUsername(username);
+        session.setAttribute("user",user);
         if (user != null && user.getPassword().equals(password)) {
             session.setAttribute("role",user.getRole());
 

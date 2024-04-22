@@ -1,8 +1,11 @@
 <%@ page import="com.loginservice.login.models.Besoin" %>
 <%@ page import="com.loginservice.login.models.Ordinateur" %>
 <%@ page import="com.loginservice.login.models.Imprimante" %>
+<%@ page import="com.loginservice.login.models.Proposition" %>
+<%@ page import="java.util.Objects" %>
 <div class="main">
-
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+             pageEncoding="UTF-8"%>
 
     <nav class="navbar navbar-expand px-3 border-bottom">
         <button class="btn" id="sidebar-toggle" type="button">
@@ -15,7 +18,7 @@
         <div class="card border-0">
             <div class="card-header">
                 <h5 class="card-title">Appels d'Offre</h5>
-                <h6 class="card-subtitle text-muted">Veuillez trouver les appels d'offre effectués récemment</h6>
+                <h6 class="card-subtitle text-muted">Veuillez trouver les appels d'offre efféctues récemment</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -67,18 +70,17 @@
                             %>
 
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#Ordinateur<%=appel.getId()%>">
-                                            Détails
+                                            Details
                                 </button>
 
                                 <div class="modal fade" id="Ordinateur<%=appel.getId()%>" tabindex="-1" aria-labelledby="OrdinateurLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="OrdinateurLabel">Modal title</h1>
+                                                <h1 class="modal-title fs-5" id="OrdinateurLabel">Ordinateur(s) demande(s)</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h2 class="fs-5">Ordinateur(s) demandé(s)</h2>
                                                 <%for(Besoin besoin : appel.getBesoins()){
                                                 if(besoin.getRessource().getType().equals("ordinateur")){
                                                     Ordinateur ordinateur=besoin.getRessource().getOrdinateur();
@@ -113,18 +115,17 @@
                                <% if (imprimantes != 0) {
                                 %>
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#imrimentes<%=appel.getId()%>">
-                                    Détails
+                                    Details
                                 </button>
 
                                 <div class="modal fade" id="imrimentes<%=appel.getId()%>" tabindex="-1" aria-labelledby="imrimentesLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="imrimentes">Modal title</h1>
+                                                <h1 class="modal-title fs-5" id="imrimentes">Imprimente(s) demandee(s)</h1>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h2 class="fs-5">Imprimente(s) demandée(s)</h2>
                                                 <%for(Besoin besoin : appel.getBesoins()){
                                                     if(besoin.getRessource().getType().equals("imprimante")){
                                                         Imprimante imprimante=besoin.getRessource().getImprimante();
@@ -155,6 +156,19 @@
                                 <%}%>
                             </td>
                             <td>
+                                <%
+
+                                    boolean aPropose = false; // Défaut à false, le fournisseur n'a pas encore proposé
+                                    List<Proposition> propositionList =appel.getPropositionList();
+                                    for (Proposition proposition : propositionList) {
+                                        if (Objects.equals(proposition.getAppelOffre().getId(), appel.getId()) && Objects.equals(proposition.getFournisseur().getId(), fournisseurr.getId())) {
+                                            aPropose = true;
+                                            break;
+                                        }
+                                    }
+                                    if(aPropose){%>
+                                <span class="badge text-bg-success">deja propose</span>
+                                <%}else {%>
 
                                 <button type="button" class="btn btn-outline-secondary" title="Soumettre Votre Proposition" data-bs-toggle="modal" data-bs-target="#Soumettre<%=appel.getId()%>"><i class="fas fa-file-alt"></i></button>
 
@@ -251,7 +265,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <%}%>
                             </td>
 
 

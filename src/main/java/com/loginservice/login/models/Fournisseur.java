@@ -2,6 +2,8 @@ package com.loginservice.login.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Fournisseur {
 
@@ -14,11 +16,20 @@ public class Fournisseur {
     private String adresse;
     private String gerantName;
     private String siteInternet;
-
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+    @OneToMany(mappedBy = "fournisseur", cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    private List<Proposition> propositionList;
 
+
+    public List<Proposition> getPropositionList() {
+        return propositionList;
+    }
+
+    public void setPropositionList(List<Proposition> propositionList) {
+        this.propositionList = propositionList;
+    }
     public Long getId() {
         return id;
     }

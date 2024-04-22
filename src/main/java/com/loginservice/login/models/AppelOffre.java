@@ -20,10 +20,20 @@ public class AppelOffre {
     private Responsable responsable;
 
 
-    @OneToMany(mappedBy = "appelOffre", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "appelOffre", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Besoin> besoins;
 
 
+    @OneToMany(mappedBy = "appelOffre", cascade = CascadeType.ALL)
+    private List<Proposition> propositionList;
+
+    public List<Proposition> getPropositionList() {
+        return propositionList;
+    }
+
+    public void setPropositionList(List<Proposition> propositionList) {
+        this.propositionList = propositionList;
+    }
 
     public List<Besoin> getBesoins() {
         return besoins;
