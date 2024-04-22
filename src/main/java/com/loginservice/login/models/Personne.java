@@ -11,10 +11,10 @@ public class Personne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    public String Prenom;
-    public String Nom;
-    public String Email;
-    public String Adresse;
+    private String Prenom;
+    private String Nom;
+    private String Email;
+    private String Adresse;
 
     public String getAdresse() {
         return Adresse;

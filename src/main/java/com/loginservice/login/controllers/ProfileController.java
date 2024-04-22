@@ -27,13 +27,16 @@ public class ProfileController {
             return "redirect:fournisseur";
         }
         case "ENSEIGNANT" -> {
-            return "redirect:enseignant?success=true";
+            return "redirect:enseignant";
         }
         case "TECHNICIEN" -> {
-            return "redirect:technicien?success=true";
+            return "redirect:technicien";
         }
         case "RESPONSABLE" -> {
-            return "redirect:responsable?success=true";
+            return "redirect:responsable";
+        }
+        case "CHEFDEPARTEMENT" -> {
+            return "ChefDep/Profile/home";
         }
         default -> {
             return "redirect:logout";

@@ -11,11 +11,9 @@ public class BesoinService {
 
     @Autowired
     private BesoinRepository besoin;
-
     public List<com.loginservice.login.models.Besoin> getAllBesoin(long id)
     {
         return besoin.findBesoinByChefDepId(id);
     }
-
 
 }

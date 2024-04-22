@@ -24,6 +24,7 @@ public class Besoin {
     @OneToMany(mappedBy = "besoin", cascade = CascadeType.ALL)
     private List<PrixBesoinProposition> propositionsAvecPrix;
 
+
     @ManyToOne
     @JoinColumn(name = "Collect_id")
     private CollecteBesoin collecteBesoin;

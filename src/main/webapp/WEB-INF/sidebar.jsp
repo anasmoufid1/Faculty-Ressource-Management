@@ -5,6 +5,10 @@
 <%
 	session = request.getSession();
     String role=(String)session.getAttribute("role");
+    if(role==null){
+        String redirectURL = "login";
+        response.sendRedirect(redirectURL);
+    }
     String nommm;
     String prenommm;
     if(role.equals("FOURNISSEUR")){
@@ -18,7 +22,6 @@
         nommm = prs.getNom();
         prenommm = prs.getPrenom();
     }
-
 %>
         <aside id="sidebar" class="js-sidebar">
             <!-- Content For Sidebar -->
@@ -110,11 +113,31 @@
                     <!-- ---------------------- ENSEIGNANT  --------------------------  -->
 
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
+                        <a href="#" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
+                           aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                            Besoin
+                        </a>
+                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="collectbesoinenseignant" class="sidebar-link">Consulter les demandes de collecte de besoins</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Vos Soumissions</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#profile" data-bs-toggle="collapse"
                            aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
                             Profile
                         </a>
-                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
                                 <a href="profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
@@ -174,7 +197,7 @@
                         </a>
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="Profile" class="sidebar-link">Paramétres du profile</a>
+                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
 
                         </ul>

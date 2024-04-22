@@ -27,6 +27,10 @@ public class AuthController {
     private ResponsableService responsableService;
 
     @Autowired
+    private CollecteBesoinService collecteBesoinService;
+
+
+    @Autowired
     private TechnicienService technicienService;
 
     @Autowired
@@ -63,6 +67,8 @@ public class AuthController {
                         if (personne != null) {
                             session.setAttribute("personne",personne);
                             session.setAttribute("enseignant",enseignant);
+                            int cpt = collecteBesoinService.GetCountCollectBesoin(enseignant.getDep().getId());
+                            session.setAttribute("compteur",cpt);
                             return "Enseignant/home";
                         }
                         return "redirect:/login?success=false";

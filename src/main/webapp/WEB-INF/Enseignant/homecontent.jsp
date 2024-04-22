@@ -1,5 +1,9 @@
+<%@ page import="com.loginservice.login.models.CollecteBesoin" %>
+<%@ page import="java.util.List" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+
 <div class="main">
 
     <nav class="navbar navbar-expand px-3 border-bottom">
@@ -17,6 +21,7 @@
             </div>
             <div class="card-body">
                 <p>contenu</p>
+
             </div>
         </div>
     </main>

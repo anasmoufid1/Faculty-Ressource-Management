@@ -19,5 +19,10 @@ public class CollecteBesoinService {
         return collecteBesoinRepository.save(c);
     }
 
+    public CollecteBesoin getBesoinById(Long Id){ return collecteBesoinRepository.findBesoinById(Id);}
+
+
+    public int GetCountCollectBesoin(Long id){ return  collecteBesoinRepository.getcountCollect(id);}
+
 
 }

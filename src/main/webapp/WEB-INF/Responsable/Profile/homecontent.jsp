@@ -1,3 +1,4 @@
+<%@ page import="java.util.Locale" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <div class="main">
@@ -38,7 +39,7 @@
                             </div>
                             <!-- Détails du Profil -->
                             <div class="col-md-8">
-                                <h3 class="text-secondary"><%=responsable.getPersonne().getNom()+" "+responsable.getPersonne().getPrenom()%></h3>
+                                <h3 class="text-secondary"><%=responsable.getPersonne().getNom().toUpperCase(Locale.ROOT)+" "+responsable.getPersonne().getPrenom().toUpperCase(java.util.Locale.ROOT)%></h3>
                                 <p><strong>Nom d'utulisateur :</strong> <%=responsable.getUser().getUsername()%></p>
                                 <p><strong>Adresse :</strong> <%=responsable.getPersonne().getAdresse()%></p>
                                 <p><strong>Email :</strong> <%=responsable.getPersonne().getEmail()%></p>

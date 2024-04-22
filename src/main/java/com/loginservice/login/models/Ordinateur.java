@@ -13,6 +13,7 @@ public class Ordinateur{
     private String Ecran;
     private String ram;
 
+
     @OneToOne
     @JoinColumn(name = "ressource_id")
     private Ressource ressource;

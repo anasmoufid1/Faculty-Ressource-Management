@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 @Entity
 public class Imprimante{
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

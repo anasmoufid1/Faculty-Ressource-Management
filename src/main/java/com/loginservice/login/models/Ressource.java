@@ -14,6 +14,10 @@ public class Ressource {
 
     private String type;
 
+    @ManyToOne
+    @JoinColumn(name = "fournisseur_id")
+    private Fournisseur fournisseur;
+
     @OneToOne(mappedBy = "ressource", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
     private Ordinateur ordinateur;
 
@@ -74,5 +78,13 @@ public class Ressource {
 
     public void setPrix(double prix) {
         this.prix = prix;
+    }
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
     }
 }
