@@ -113,36 +113,44 @@
                     <!-- ---------------------- ENSEIGNANT  --------------------------  -->
 
                     <li class="sidebar-item">
+
                         <a href="#" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Dashboard
                         </a>
                     </li>
+                    <% int compteur = (int)session.getAttribute("compteur");%>
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
-                           aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                           aria-expanded="false">
+                            <i class="fa-solid fa-file-lines pe-2"></i>
                             Besoin
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="collectbesoinenseignant" class="sidebar-link">Consulter les demandes de collecte de besoins</a>
+                            <li class="sidebar-item" style="display: flex; align-items: center; justify-content: space-between;">
+                                <a href="collectbesoinenseignant" class="sidebar-link" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                                    <div class="sidebar-text" style="flex: 1;">Consulter les demandes de collecte de besoins</div>
+                                    <span class="badge bg-danger" style="border-radius: 50%; padding: 5px 8px;"><%= compteur%></span>
+                                </a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link">Vos Soumissions</a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#profile" data-bs-toggle="collapse"
-                           aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
-                            Profile
-                        </a>
-                        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
-                            </li>
 
-                        </ul>
+                    </li>
+
+
+                    <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
+                       aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
+                        Profile
+                    </a>
+                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="profile" class="sidebar-link">Paramétres du profile</a>
+                        </li>
+
+                    </ul>
 
                     </li>
 

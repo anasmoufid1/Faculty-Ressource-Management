@@ -43,16 +43,18 @@
                         <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <button type="submit" class="btn btn-secondary btn-block">Login</button>
                 </form>
 
                 <div class="text-center mt-3">
-                    don't have an account? <a href="/register">Register</a>
+                    don't have an account? <a href="register">Register</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 
 </body>
 </html>

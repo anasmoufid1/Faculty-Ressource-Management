@@ -37,13 +37,13 @@
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="acceptPolicy" required>
-                        <label class="form-check-label" for="acceptPolicy">Accept policy of terms and services</label>
+                        <label class="form-check-label" for="acceptPolicy">Accept policy of <strong><a href="#" class="link-dark"> terms and services</a></strong></label>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <button type="submit" class="btn btn-secondary btn-block">Register</button>
                 </form>
 
                 <div class="text-center mt-3">
-                    Already have an account? <a href="/login">Login</a>
+                    Already have an account? <a href="login">Login</a>
                 </div>
             </div>
         </div>

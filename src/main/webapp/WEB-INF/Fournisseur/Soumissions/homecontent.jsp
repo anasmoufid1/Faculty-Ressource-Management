@@ -86,8 +86,7 @@
                                                             </div>
                                                             <% double prix = 0;
                                                                 for(PrixBesoinProposition prixprop : proposition.getPrixDesBesoins()){
-                                                                    prix=0;
-                                                                if(Objects.equals(prixprop.getBesoin().getId(), besoin.getId())){
+                                                                if(prixprop.getBesoin().getId()==besoin.getId()){
                                                                     prix=prixprop.getPrix();
                                                                 }
                                                             }%>
@@ -112,7 +111,6 @@
                                                             </div>
                                                             <% double prix = 0;
                                                                 for(PrixBesoinProposition prixprop : proposition.getPrixDesBesoins()){
-                                                                    prix=0;
                                                                     if(prixprop.getBesoin().getId()==besoin.getId()){
                                                                         prix=prixprop.getPrix();
                                                                     }
