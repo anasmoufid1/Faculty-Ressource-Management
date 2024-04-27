@@ -112,8 +112,9 @@
                     <%}else if (role.equals("ENSEIGNANT")){%>
                     <!-- ---------------------- ENSEIGNANT  --------------------------  -->
 
-                    <li class="sidebar-item">
 
+
+                    <li class="sidebar-item">
                         <a href="#" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Dashboard
@@ -121,38 +122,46 @@
                     </li>
                     <% int compteur = (int)session.getAttribute("compteur");%>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
-                           aria-expanded="false">
-                            <i class="fa-solid fa-file-lines pe-2"></i>
-                            Besoin
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#besoin" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="fa-solid fa-file-lines pe-2"></i> Besoin
                         </a>
-                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                            <li class="sidebar-item" style="display: flex; align-items: center; justify-content: space-between;">
-                                <a href="collectbesoinenseignant" class="sidebar-link" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-                                    <div class="sidebar-text" style="flex: 1;">Consulter les demandes de collecte de besoins</div>
-                                    <span class="badge bg-danger" style="border-radius: 50%; padding: 5px 8px;"><%= compteur%></span>
-                                </a>
+                        <ul id="besoin" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item d-flex align-items-center">
+                                <a href="collectbesoinenseignant" class="sidebar-link">demandes de collecte</a>
+                                <span class="badge bg-danger" style="border-radius: 50%; padding: 5px 8px;"><%= compteur%></span>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#affectation" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="fa-solid fa-file-lines pe-2"></i> Affectation
+                        </a>
+                        <ul id="affectation" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="AffectationPrevue" class="sidebar-link">Affectations prevues</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Vos Soumissions</a>
+                                <a href="#" class="sidebar-link">Affectations definitives</a>
                             </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#profile" data-bs-toggle="collapse"
+                           aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
+                            Profile
+                        </a>
+                        <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Paramétres du profile</a>
+                            </li>
+
                         </ul>
 
                     </li>
 
 
-                    <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
-                       aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
-                        Profile
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="profile" class="sidebar-link">Paramétres du profile</a>
-                        </li>
-
-                    </ul>
-
-                    </li>
 
 
 
@@ -222,8 +231,8 @@
 									class="fas fa-power-off me-2"></i>Logout
 								</a>
                     </li>
-                    			
-                    
+
+
                 </ul>
             </div>
         </aside>

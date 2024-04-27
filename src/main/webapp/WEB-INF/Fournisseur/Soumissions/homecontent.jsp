@@ -155,11 +155,11 @@
                             </td>
                             <td>
                                 <%if(proposition.getStatus()==1){%>
-                                <span class="badge text-bg-success">accepter</span>
+                                <span class="badge text-bg-success">acceptée</span>
                                 <%}else if(proposition.getStatus()==2){ %>
                                 <span class="badge text-bg-secondary">en cours</span>
                                 <%}else{%>
-                                <span class="badge text-bg-danger">refuse</span>
+                                <span class="badge text-bg-danger">refusée</span>
                                 <%}%>
                             </td>
                         </tr>
