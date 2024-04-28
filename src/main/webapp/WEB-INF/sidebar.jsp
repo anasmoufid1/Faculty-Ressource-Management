@@ -154,7 +154,7 @@
                         </a>
                         <ul id="profile" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Paramétres du profile</a>
+                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
 
                         </ul>

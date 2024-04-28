@@ -13,6 +13,9 @@
         <div class="card border-0">
             <div class="card-header">
                 <h5 class="card-title">Details de Votre Profil</h5>
+                <h6 class="card-subtitle text-muted">Dans cette section, vous pouvez modifier votre mot de passe.</h6>
+            </div>
+            <div class="card-body">
                 <%if(request.getParameter("success")!=null && request.getParameter("success").equals("true")){%>
                 <div class="alert alert-success alert-dismissible" role="alert">
                     Vous avez modifier votre mot de passe avec succes!
@@ -25,9 +28,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <%}%>
-
-            </div>
-            <div class="card-body">
                 <!-- Informations du Profil et Modification de Mot de Passe -->
                 <div class="row align-items-center justify-content-center">
                     <!-- Informations du Profil -->
