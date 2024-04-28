@@ -1,11 +1,10 @@
 package com.loginservice.login.controllers;
 
-import com.loginservice.login.models.AppelOffre;
-import com.loginservice.login.models.Fournisseur;
-import com.loginservice.login.models.Proposition;
+import com.loginservice.login.models.*;
 import com.loginservice.login.repositories.AppelsOffreRepository;
 import com.loginservice.login.repositories.FournisseurRepository;
 import com.loginservice.login.services.AppelsOffreService;
+import com.loginservice.login.services.BesoinService;
 import com.loginservice.login.services.PrixBesoinPropositionService;
 import com.loginservice.login.services.PropositionService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -31,7 +32,12 @@ public class AppelOffreController {
     private FournisseurRepository fournisseurRepository;
 
     @Autowired
+    private BesoinService besoinService;
+    @Autowired
     private PropositionService propositionService;
+
+    @Autowired
+    private CollecteBesoinController collecteBesoinController;
 
     @Autowired
     private PrixBesoinPropositionService prixBesoinPropositionService;
@@ -95,7 +101,44 @@ public class AppelOffreController {
         return "redirect:appelsoffre?success=true";
     }
 
+    @PostMapping("/EffctuerAppelOffre")
+    public String EffectuerAppelOffre(Model model, HttpServletRequest request, HttpSession session) {
+        Responsable responsable = (Responsable) session.getAttribute("responsable");
+        String dateDebutStr = request.getParameter("date_debut");
+        String dateExpirationStr = request.getParameter("date_expiration");
 
+        Date dateDebut = null;
+        Date dateExpiration = null;
 
+        // Vérifier si les paramètres de date ne sont pas null avant de les utiliser
+        if (dateDebutStr != null && dateExpirationStr != null) {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
+            try {
+                dateDebut = formatter.parse(dateDebutStr);
+                dateExpiration = formatter.parse(dateExpirationStr);
+            } catch (ParseException e) {
+                e.printStackTrace(); // ou une autre action appropriée
+            }
+        }
+
+        AppelOffre appelOffre = new AppelOffre();
+
+        appelOffre.setDateDebut(dateDebut);
+        appelOffre.setDateFin(dateExpiration);
+        appelOffre.setResponsable(responsable);
+
+        appelsOffreService.insertAppelOffre(appelOffre);
+        Long appelOffreInsertedId = appelsOffreService.GetAppelOffreID(appelOffre.getDateDebut() , appelOffre.getDateFin() , appelOffre.getResponsable().getId());
+
+        //session.setAttribute("appp" , appelOffreInsertedId);
+        List<Besoin> listBesoin = besoinService.getAll();
+        for (Besoin besoin : listBesoin) {
+            besoin.setAppelOffre(appelOffre); // Mettez la nouvelle valeur de l'id
+        }
+        besoinService.saveAlll(listBesoin);
+
+        return "Responsable/home";
+    }
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="css/style2.css">
 </head><body>
     <div class="wrapper">
-		<%@ include file="../sidebar.jsp"%>
+        <%@ include file="../sidebar.jsp"%>
 		<%@ include file="homecontent.jsp"%>
 	</div>	
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>

@@ -45,11 +45,11 @@
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
                            aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
-                            Projets
+                            Appel d'offres
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Afficher Projets</a>
+                                <a href="EffctuerNouvelleAppelOffre" class="sidebar-link">Effectuer un appel d'offre</a>
                             </li>
                             <li class="sidebar-item">
                                 <a href="#" class="sidebar-link">Ajouter Projet</a>

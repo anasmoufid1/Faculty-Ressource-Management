@@ -13,4 +13,7 @@ public class RedirectController {
     return "Auth/login";
 }
 
+@GetMapping("/EffctuerNouvelleAppelOffre")
+    public String EffctuerAppelOffre(){return "Responsable/EffectuerAppelOffre/home" ;}
+
 }
