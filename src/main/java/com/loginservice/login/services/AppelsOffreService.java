@@ -5,6 +5,7 @@ import com.loginservice.login.repositories.AppelsOffreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,5 +19,14 @@ public class AppelsOffreService {
     }
     public List<AppelOffre> getAllAppelsOffre() {
         return appelOffreRepository.findAll();
+    }
+
+    public AppelOffre insertAppelOffre(AppelOffre appelOffre)
+    {
+        return appelOffreRepository.save(appelOffre);
+    }
+    public Long GetAppelOffreID(Date Debut , Date fin , Long respoId)
+    {
+        return appelOffreRepository.getIdByInformations(Debut , fin , respoId);
     }
 }

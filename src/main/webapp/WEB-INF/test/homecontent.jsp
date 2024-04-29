@@ -1,4 +1,4 @@
-
+<%@ page import="com.loginservice.login.models.Enseignant" %>
 <div class="main">
 
     <nav class="navbar navbar-expand px-3 border-bottom">
@@ -15,7 +15,9 @@
                 <h6 class="card-subtitle text-muted">sous titre</h6>
             </div>
             <div class="card-body">
-                <p>contenu</p>
+                <p><%Enseignant enseignant = (Enseignant) request.getAttribute("EnseignantAffecté") ;%>
+                    <%=enseignant.getPersonne().getPrenom()%>
+                </p>
             </div>
         </div>
     </main>

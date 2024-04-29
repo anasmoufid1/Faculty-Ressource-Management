@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EnseignantService{
@@ -51,5 +52,10 @@ public class EnseignantService{
         imprimanteRepository.save(imprimante);
         besoinRepository.save(b);
     }
+
+    public List<Enseignant> getAll() {
+        return enseignantRepository.findAll();
+    }
+
 
 }

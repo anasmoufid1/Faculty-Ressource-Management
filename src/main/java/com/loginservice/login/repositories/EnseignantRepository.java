@@ -16,8 +16,10 @@ public interface EnseignantRepository extends JpaRepository<Enseignant,Long> {
     @Query("SELECT E FROM Enseignant E WHERE E.Dep.id = :departementId")
     List<Enseignant> getEnseignantByDepartementId(@Param("departementId") Long departementId);
 
-    @Query("SELECT c FROM CollecteBesoin c WHERE c.chefDep.id IN (SELECT cd.id FROM ChefDepartement cd WHERE cd.enseignant.id IN (SELECT e.id FROM Enseignant e WHERE e.Dep.id = :depId))")
+    @Query("SELECT c FROM CollecteBesoin c WHERE c.chefDep.id IN (SELECT cd.id FROM ChefDepartement cd WHERE cd.enseignant.id IN (SELECT e.id FROM Enseignant e WHERE e.Dep.id = :depId))ORDER BY c.dateDemande DESC ")
     List<CollecteBesoin> getCollectBesoinByDepartementId(Long depId);
+
+
 
 
 }

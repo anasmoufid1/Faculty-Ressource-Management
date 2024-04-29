@@ -18,4 +18,16 @@ public class OrdinateurService {
     public Ordinateur getOrdinateurByRessource(Ressource ressource) {
         return ordinateurRepository.findByRessource(ressource);
     }
+
+    public Ordinateur saveOrdinateur(Ordinateur ordinateur)
+    {
+        return  ordinateurRepository.save(ordinateur);
+    }
+
+    public Ordinateur getOrdinateurByRessourceId(Long id)
+    {
+        return ordinateurRepository.findByRessourceId(id);
+    }
+
+    public void deleteOrdinateur(Long id){ ordinateurRepository.deleteById(id);}
 }

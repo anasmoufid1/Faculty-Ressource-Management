@@ -1,6 +1,7 @@
 package com.loginservice.login.services;
 
 import com.loginservice.login.models.Affectation;
+import com.loginservice.login.models.Ressource;
 import com.loginservice.login.repositories.AffectationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,10 @@ public class AffectationService {
 
     public List<Affectation> getAffectationById(Long enseignantID)
     {
+
         return affectationRepository.findAffectationById(enseignantID);
     }
+
+
+
 }

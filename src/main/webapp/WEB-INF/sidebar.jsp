@@ -37,22 +37,33 @@
                     <!-- ---------------------- RESPONSABLE --------------------------  -->
                     <%if (role.equals("RESPONSABLE")) {%>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">
-                            <i class="fa-solid fa-list pe-2"></i>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
-                           aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#appelsOffre" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="fa-solid fa-file-lines pe-2"></i>
                             Appels d'offre
                         </a>
-                        <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <ul id="appelsOffre" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="EffectuerNouvelleAppelOffre" class="sidebar-link">Effectuer un appel d'offre</a>
+                            </li>
                             <li class="sidebar-item">
                                 <a href="/propositions" class="sidebar-link">Consulter</a>
                             </li>
                         </ul>
                     </li>
+
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#ressources" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="fa-solid fa-file-lines pe-2"></i>
+                            Ressources
+                        </a>
+                        <ul id="ressources" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="RessourceDisponible" class="sidebar-link">Les ressources disponibles</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
 
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"

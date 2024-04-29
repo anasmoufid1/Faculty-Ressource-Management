@@ -2,6 +2,8 @@ package com.loginservice.login.models;
 
 import jakarta.persistence.*;
 
+import java.util.Optional;
+
 @Entity
 public class Affectation {
 
@@ -40,4 +42,6 @@ public class Affectation {
     public void setRessource(Ressource ressource) {
         this.ressource = ressource;
     }
+
+
 }
