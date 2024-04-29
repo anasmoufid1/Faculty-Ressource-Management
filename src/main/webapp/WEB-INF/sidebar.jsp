@@ -166,6 +166,12 @@
                     <%}else if (role.equals("TECHNICIEN")){%>
                     <!-- ---------------------- TECHNICIEN  --------------------------  -->
 
+                    <li class="sidebar-item">
+                        <a href="Hamza" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
 
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
@@ -176,7 +182,6 @@
                             <li class="sidebar-item">
                                 <a href="profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
-
                         </ul>
 
                     </li>

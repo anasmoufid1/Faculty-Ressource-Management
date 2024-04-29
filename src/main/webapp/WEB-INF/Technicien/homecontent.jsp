@@ -15,11 +15,10 @@
         <!-- Table Element -->
         <div class="card border-0">
             <div class="card-header">
-                <h5 class="card-title">Titre</h5>
-                <h6 class="card-subtitle text-muted">sous titre</h6>
+                <h5 class="card-title">Service de Maintenence</h5>
             </div>
             <div class="card-body">
-                <p>contenu</p>
+                <p>Liste des Pannes a Reparer </p>
                 <table class="table">
                     <thead>
                     <tr>
