@@ -15,7 +15,7 @@ public class AppelOffre {
     private Date dateDebut;
     private Date dateFin;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "responsable_id")
     private Responsable responsable;
 

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style2.css">
 </head><body>
     <div class="wrapper">
+        <%Fournisseur fournisseurr = (Fournisseur) session.getAttribute("fournisseur");%>
 		<%@ include file="../sidebar.jsp"%>
 		<%@ include file="homecontent.jsp"%>
 	</div>	

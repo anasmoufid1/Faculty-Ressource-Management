@@ -45,17 +45,15 @@
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#pages" data-bs-toggle="collapse"
                            aria-expanded="false"><i class="fa-solid fa-file-lines pe-2"></i>
-                            Projets
+                            Appels d'offre
                         </a>
                         <ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Afficher Projets</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Ajouter Projet</a>
+                                <a href="/propositions" class="sidebar-link">Consulter</a>
                             </li>
                         </ul>
                     </li>
+
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
                            aria-expanded="false"><i class="fa-regular fa-user pe-2"></i>
@@ -63,7 +61,7 @@
                         </a>
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="profile" class="sidebar-link">Paramétres du profile</a>
+                                <a href="/profile" class="sidebar-link">Paramétres du profile</a>
                             </li>
 
                         </ul>
@@ -226,7 +224,7 @@
 
 
                     <li class="sidebar-header">
-                       <a href="logout"
+                       <a href="/logout"
 									class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
 									class="fas fa-power-off me-2"></i>Logout
 								</a>

@@ -22,6 +22,8 @@ public class Fournisseur {
     @OneToMany(mappedBy = "fournisseur", cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     private List<Proposition> propositionList;
 
+    @OneToMany(mappedBy = "fournisseur", cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+    private List<Notification> notificationList;
 
     public List<Proposition> getPropositionList() {
         return propositionList;
@@ -80,6 +82,14 @@ public class Fournisseur {
 
     public String getSiteInternet() {
         return siteInternet;
+    }
+
+    public List<Notification> getNotificationList() {
+        return notificationList;
+    }
+
+    public void setNotificationList(List<Notification> notificationList) {
+        this.notificationList = notificationList;
     }
 
     public void setSiteInternet(String siteInternet) {

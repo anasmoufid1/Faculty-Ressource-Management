@@ -13,9 +13,11 @@ public class Notification {
     private Date Date;
     private String message;
 
+    private boolean status; //0 pas encore
+
     @ManyToOne
-    @JoinColumn(name = "personne_id")
-    private Personne personne;
+    @JoinColumn(name = "fournisseur_id")
+    private Fournisseur fournisseur;
 
     public Long getId() {
         return id;
@@ -41,11 +43,19 @@ public class Notification {
         this.message = message;
     }
 
-    public Personne getPersonne() {
-        return personne;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public Fournisseur getFournisseur() {
+        return fournisseur;
+    }
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
     }
 }
