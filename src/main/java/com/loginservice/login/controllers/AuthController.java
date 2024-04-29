@@ -81,7 +81,7 @@ public class AuthController {
                         if (personne != null) {
                             session.setAttribute("personne",personne);
                             session.setAttribute("technicien",technicien);
-                            return "Technicien/home";
+                            return "redirect:/Hamza";
                         }
                         return "redirect:/login?success=false";
                     }
