@@ -29,4 +29,7 @@ public class AppelsOffreService {
     {
         return appelOffreRepository.getIdByInformations(Debut , fin , respoId);
     }
+    public void deleteAppelOffre(AppelOffre appelOffre){
+        appelOffreRepository.deleteById(appelOffre.getId());
+    }
 }

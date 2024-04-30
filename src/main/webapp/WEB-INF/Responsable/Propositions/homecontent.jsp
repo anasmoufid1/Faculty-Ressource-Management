@@ -168,17 +168,39 @@
                                                     <h1 class="modal-title fs-5" id="RessourcesLivréesLbel">Confirmer l'Arrivage</h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form method="post" action="/confirmer">
-                                                        <input type="hidden" name="proposition" value="<%=proposition.getId()%>">
-                                                        <p>La confirmation de l'arrivage entraîne la complétion de l'appel d'offre et par la suite le retirer définitivement.</p>
-                                                        <p class="text-danger">Êtes-vous sûr de bien vouloir confirmer ?</p>
-                                                    </form>
+                                                <form method="post" action="/confirmer">
+                                                    <div class="modal-body">
+                                                        <p class="card-text">La confirmation de l'arrivage entraîne la complétion de l'appel d'offre et par la suite le retirer définitivement.</p>
+                                                        <div class="card text-center">
+                                                            <div class="card-header">
+                                                                Fournisseur : <%=proposition.getFournisseur().getCompanyName().toUpperCase(java.util.Locale.ROOT)%>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <input type="hidden" name="proposition" value="<%= proposition.getId()%>">
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="gerant">Nom du gérant</span>
+                                                                    <input type="text" class="form-control" name="nomgerant" aria-label="gerant" aria-describedby="basic-addon1" <% if (proposition.getFournisseur().getGerantName() != null) { %> value="<%= proposition.getFournisseur().getGerantName() %>" readonly <% } %> required>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="adresse">Adresse</span>
+                                                                    <input type="text" class="form-control" name="adresse" aria-label="adresse" aria-describedby="basic-addon1" <% if (proposition.getFournisseur().getAdresse() != null) { %> value="<%= proposition.getFournisseur().getAdresse() %>" readonly <% } %> required>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <span class="input-group-text" id="siteinternet">Site Internet</span>
+                                                                    <input type="text" class="form-control" name="siteinternet"  aria-label="siteinternet" aria-describedby="basic-addon1" <% if (proposition.getFournisseur().getSiteInternet() != null) { %> value="<%= proposition.getFournisseur().getSiteInternet() %>" readonly <% } %> required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <p class="text-danger">Êtes-vous sûr de bien vouloir confirmer l'arrivage?</p>
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
                                                     <button type="submit" class="btn btn-primary" id="btnConfirmer">Confirmer</button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

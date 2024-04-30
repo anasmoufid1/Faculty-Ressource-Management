@@ -26,6 +26,9 @@ public class BesoinService {
         besoinRepository.saveAll(listBesoin);
     }
 
+    public void deleteBesoin(Besoin bes){
+        besoinRepository.deleteById(bes.getId());
+    }
 
 
 }

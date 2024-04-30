@@ -33,4 +33,8 @@ public class FournisseurService{
     public Fournisseur getFournisseurByUser(User user) {
         return fournisseurRepository.findByUser(user);
     }
+
+    public void update(Fournisseur fournisseur){
+        fournisseurRepository.save(fournisseur);
+    }
 }

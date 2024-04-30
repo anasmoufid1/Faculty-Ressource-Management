@@ -36,4 +36,8 @@ public class PrixBesoinPropositionService {
         prixBesoinPropositionpropositionRepository.save(prixBesoinProposition);
         return prixBesoinProposition;
     }
+
+    public void deletePrixProposition(PrixBesoinProposition prixBesoinProposition){
+        prixBesoinPropositionpropositionRepository.deleteById(prixBesoinProposition.getId());
+    }
 }

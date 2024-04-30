@@ -1,7 +1,6 @@
 <%@ page import="com.loginservice.login.models.Proposition" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.loginservice.login.models.AppelOffre" %>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +15,8 @@
     <link rel="stylesheet" href="../css/style2.css">
 </head><body>
     <div class="wrapper">
+
+
         <% AppelOffre appelOffre = (AppelOffre) request.getAttribute("appeloffre"); %>
 		<%@ include file="../../sidebar.jsp"%>
 		<%@ include file="homecontent.jsp"%>

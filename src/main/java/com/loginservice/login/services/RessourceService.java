@@ -24,4 +24,7 @@ public class RessourceService {
     public Void DeleteResource(Long id){  ressourceRepository.deleteById(id);
         return null;
     }
+    public void save(Ressource ressource){
+        ressourceRepository.save(ressource);
+    }
 }

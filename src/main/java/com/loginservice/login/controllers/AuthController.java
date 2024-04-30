@@ -56,7 +56,7 @@ public class AuthController {
                     Fournisseur fournisseur = fournisseurService.getFournisseurByUser(user);
                     if (fournisseur != null) {
                         session.setAttribute("fournisseur",fournisseur);
-                        return "Fournisseur/home";
+                        return "redirect:/fournisseurhome";
                     }
                     return "redirect:/login?success=false";
                 }
@@ -69,7 +69,7 @@ public class AuthController {
                             session.setAttribute("enseignant",enseignant);
                             int cpt = collecteBesoinService.GetCountCollectBesoin(enseignant.getDep().getId());
                             session.setAttribute("compteur",cpt);
-                            return "Enseignant/home";
+                            return "redirect:/enseignanthome";
                         }
                         return "redirect:/login?success=false";
                     }
@@ -93,7 +93,7 @@ public class AuthController {
                         if (personne != null) {
                             session.setAttribute("personne",personne);
                             session.setAttribute("responsable",responsable);
-                            return "Responsable/home";
+                            return "redirect:/responsablehome";
                         }
                         return "redirect:/login?success=false";
                     }

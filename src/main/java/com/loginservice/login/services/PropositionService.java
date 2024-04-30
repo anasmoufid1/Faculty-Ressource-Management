@@ -10,6 +10,7 @@ import com.loginservice.login.repositories.NotificationRepository;
 import com.loginservice.login.repositories.PropositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -89,4 +90,18 @@ public class PropositionService {
         notification.setMessage("votre proposition a l'appel d'offre a ete accepetée");
         notificationRepository.save(notification);
     }
+    public Proposition getpropositionbyid(int id){
+
+        if(propositionRepository.findById((long)id).isPresent()){
+            return propositionRepository.findById((long)id).get();
+        }else{
+            return null;
+        }
+    }
+
+
+    public void deleteProposition(Proposition proposition){
+        propositionRepository.deleteById(proposition.getId());
+    }
+
 }
