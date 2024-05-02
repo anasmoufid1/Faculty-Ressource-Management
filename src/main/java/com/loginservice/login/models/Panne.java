@@ -12,6 +12,10 @@ public class Panne {
     @JoinColumn(name = "affectation_ID")
     private Affectation affectation;
 
+    @ManyToOne
+    @JoinColumn(name = "technicien_id")
+    private Technicien technicien;
+
     public Long getId() {
         return id;
     }
@@ -26,5 +30,13 @@ public class Panne {
 
     public void setAffectation(Affectation affectation) {
         this.affectation = affectation;
+    }
+
+    public Technicien getTechnicien() {
+        return technicien;
+    }
+
+    public void setTechnicien(Technicien technicien) {
+        this.technicien = technicien;
     }
 }

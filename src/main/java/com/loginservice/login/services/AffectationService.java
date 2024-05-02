@@ -25,6 +25,10 @@ public class AffectationService {
         return affectationRepository.findAffectationById(enseignantID);
     }
 
+    public List<Affectation> getAll(){
+        return affectationRepository.findAll();
+    }
+
 
 
 }

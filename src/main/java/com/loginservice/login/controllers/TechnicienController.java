@@ -25,10 +25,12 @@ public class TechnicienController {
     @Autowired
     private PanneService panneService;
 
-    @GetMapping("/Hamza")
-    public String Hamza(Model model) {
+    @GetMapping("/listePanneTechnicien")
+    public String listePanneTechnicien(Model model, HttpSession session) {
+        Technicien technicien = (Technicien) session.getAttribute("technicien");
+        long idTechnicien = technicien.getId();
 
-        List<Panne> listPanne = panneService.getAll();
+        List<Panne> listPanne = panneService.getPanneByTechnicienId(idTechnicien);
         model.addAttribute("listPanne", listPanne);
         return "Technicien/home";
     }
@@ -47,7 +49,7 @@ public class TechnicienController {
             java.util.Date parsedDate = dateFormat.parse(dateApart);
             dateApar = new java.sql.Date(parsedDate.getTime());
         } catch (ParseException e) {
-            return "redirect:/Hamza";
+            return "redirect:/listePanneTechnicien";
         }
 
         Constat constat = new Constat();
@@ -62,7 +64,7 @@ public class TechnicienController {
         constat.setTechnicien(technicien);
 
         technicienService.enregistrerConstat(constat);
-        return "redirect:/Hamza";
+        return "redirect:/listePanneTechnicien";
     }
 
     @PostMapping("/supprimerPanne")
@@ -75,7 +77,7 @@ public class TechnicienController {
 
         technicienService.supprimerPanne(panne);
 
-        return "redirect:/Hamza";
+        return "redirect:/listePanneTechnicien";
     }
 
 }

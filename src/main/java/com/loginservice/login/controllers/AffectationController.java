@@ -51,4 +51,11 @@ public class AffectationController {
         model.addAttribute("listAffectation" , listAffectation);
         return "Enseignant/Affectation/home";
     }
+
+    @GetMapping("/AffectationsDefinitives")
+    public String AffectationsDefinitives(Model model){
+        List<Affectation> listeAffectation = affectationService.getAll();
+        model.addAttribute("listeAffectation" , listeAffectation);
+        return "Enseignant/AffectationsDefinitives/home";
+    }
 }

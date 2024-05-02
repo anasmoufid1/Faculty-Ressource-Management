@@ -11,6 +11,8 @@ import com.loginservice.login.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TechnicienService{
 
@@ -25,6 +27,8 @@ public class TechnicienService{
 
     @Autowired
     private ConstatRepository constatRepository;
+
+    public List<Technicien> getAll(){ return technicienRepository.findAll();}
 
     public Technicien getTechnicienByUser(User user) {
         return technicienRepository.findByUser(user);

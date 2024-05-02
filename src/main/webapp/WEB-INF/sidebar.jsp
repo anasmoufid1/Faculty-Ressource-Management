@@ -70,6 +70,22 @@
                         </ul>
                     </li>
 
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#listeConstats" data-bs-toggle="collapse" aria-expanded="false">
+                            <i class="fa-solid fa-briefcase pe-2"></i>
+                            Gestion des Pannes
+                        </a>
+                        <ul id="listeConstats" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="/listePanne" class="sidebar-link">Liste des Pannes</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="/listeConstats" class="sidebar-link">Liste des Constats</a>
+                            </li>
+
+                        </ul>
+                    </li>
+
 
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#auth" data-bs-toggle="collapse"
@@ -157,7 +173,7 @@
                                 <a href="AffectationPrevue" class="sidebar-link">Affectations prevues</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link">Affectations definitives</a>
+                                <a href="AffectationsDefinitives" class="sidebar-link">Affectations definitives</a>
                             </li>
                         </ul>
                     </li>
@@ -184,7 +200,7 @@
                     <!-- ---------------------- TECHNICIEN  --------------------------  -->
 
                     <li class="sidebar-item">
-                        <a href="Hamza" class="sidebar-link">
+                        <a href="listePanneTechnicien" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Dashboard
                         </a>
